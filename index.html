@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>全球热点观察 · V0.9 权威信源纯净版</title>
+<link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="wrap">
+
+<div class="top">
+  <div>
+    <span class="badge b-live">● LIVE</span>
+    <span class="badge b-ver">V0.9 权威信源纯净版</span>
+    <h1>全球热点观察</h1>
+    <div class="sub-en">GLOBAL HOTSPOT OBSERVER · REAL-TIME AI CRAWL EDITION</div>
+  </div>
+  <div class="clock">
+    <span class="live-dot">● LIVE</span> <span id="clock">--:--:--</span><br>
+    <span id="date">----年--月--日 · 北京时间 UTC+8</span>
+  </div>
+</div>
+
+<div class="ticker" title="鼠标悬停可暂停滚动">
+  <div class="ticker-label">⚡ AI 快讯</div>
+  <div class="ticker-body"><ul id="tickerList"><li>正在初始化 AI 抓取引擎…（滚动已放缓，悬停可暂停）</li></ul></div>
+</div>
+
+<section class="panel">
+  <h2>AI 抓取引擎<span class="en">CRAWL ENGINE · V0.9 PURE</span></h2>
+  <div class="desc">已接入 10 家权威信源：新华社（要闻·领导人）/ 央视国防军事（CCTV-7）/ 俄罗斯卫星通讯社 / NHK / BBC / CNN / 路透社 / NASA / SpaceflightNow / 华尔街见闻 · <b style="color:var(--green)">无任何演示数据</b></div>
+  <div class="console-grid">
+    <div class="cstat"><label>上次抓取时间</label><b id="lastCrawl">--</b></div>
+    <div class="cstat"><label>下次自动抓取倒计时</label><b id="nextCrawl">--:--:--</b></div>
+    <div class="cstat"><label>本轮成功信源</label><b id="okCount">--</b></div>
+    <div class="cstat"><label>实时追踪</label><b id="syncState">未开启</b></div>
+    <div class="cstat"><label>库内条目总数</label><b id="libCount">0</b></div>
+  </div>
+  <div class="console-actions">
+    <button id="refreshBtn" class="refresh-btn"><span class="spin">⟳</span> 立即刷新</button>
+    <button id="syncBtn" class="sync-btn">🛰 实时追踪 · 已关闭</button>
+    <div class="engine-flow">抓取 <i>→</i> 清洗 <i>→</i> 定向过滤 <i>→</i> 深链校验 <i>→</i> 入库渲染</div>
+  </div>
+  <div class="mode-note">
+    ℹ <b>自动倒计时独立运行</b>（4h 固定锚点，手动刷新不重置不暂停）·
+    <b>新华社</b>仅展示主要领导人相关报道（关键词过滤 + 定向镜像）·
+    <b>军事</b>分类信息源为央视国防军事频道《军事报道》·
+    每信源四级容错：官方 → RSSHub → 社区实例 → 定向镜像兜底 ·
+    卡片紫色<b style="color:#a78bff">「原文」</b>= 直达报道正文页
+  </div>
+  <div class="src-status" id="srcStatus"></div>
+  <div class="crawl-log" id="crawlLog"><div class="log-line dim">[系统] 引擎待命…</div></div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="n" id="statNews">0</div><div class="t">今日快讯</div><div class="up" id="statNewsUp">▲ 等待首轮抓取</div></div>
+  <div class="stat"><div class="n">6大区</div><div class="t">跟踪区域 · 42 热点带</div></div>
+  <div class="stat"><div class="n" id="statSrc">--</div><div class="t">在用信源 · 4h 周期</div></div>
+  <div class="stat"><div class="n" style="color:var(--amber)">橙色 Ⅱ级</div><div class="t">综合态势等级</div></div>
+</div>
+
+<div class="tabs" id="tabs">
+  <button class="tab active" data-cat="全部">全部</button>
+  <button class="tab" data-cat="政治">政治·要闻</button>
+  <button class="tab" data-cat="军事">军事（CCTV-7）</button>
+  <button class="tab" data-cat="航天">航天发射</button>
+  <button class="tab" data-cat="科技·经济">科技·经济</button>
+</div>
+
+<div id="feed"></div>
+
+<section class="panel">
+  <h2>热点榜<span class="en">TRENDING · AI 评估</span></h2>
+  <div id="trending"></div>
+</section>
+
+<footer>
+  全 球 热 点 观 察 <span class="hl">GLOBAL HOTSPOT OBSERVER</span><br>
+  V0.9 权威信源纯净版 · 全部为实时抓取条目 · 无演示数据 · 自动4h ＋ 手动刷新 ＋ 实时追踪 三轨并行<br>
+  点击新闻直达报道正文页（紫色「原文」标记）· 数据版权归原媒体所有
+</footer>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
